@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     DashboardController,
     MapelController,
+    KelasController,
+    TahunAjaranController,
 };
 
 /*
@@ -31,6 +33,8 @@ Route::group([
     'middleware' => ['auth','role:admin']
 ], function() {
     Route::resource('/mapel', MapelController::class);
+    Route::resource('/kelas', KelasController::class);
+    Route::resource('/tahunAjaran', TahunAjaranController::class);
 });
 
 Route::group([

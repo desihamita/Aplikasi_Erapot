@@ -53,7 +53,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link {{ request()->is('kelas*') ? 'active' : '' }}">
+                            <a href="{{ route('kelas.index') }}" class="nav-link {{ request()->is('kelas*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Kelas</p>
                             </a>
@@ -71,7 +71,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/uplot.html" class="nav-link">
+                            <a href="{{ route('tahunAjaran.index') }}" class="nav-link {{ request()->is('mapel*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Tahun Ajaran</p>
                             </a>
