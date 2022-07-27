@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{ route('mapel.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Mata Pelajaran</p>
                             </a>

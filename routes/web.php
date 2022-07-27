@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    DashboardController
+    DashboardController,
+    MapelController,
 };
 
 /*
@@ -29,7 +30,7 @@ Route::group([
 Route::group([
     'middleware' => ['auth','role:admin']
 ], function() {
-    //
+    Route::resource('/mapel', MapelController::class);
 });
 
 Route::group([

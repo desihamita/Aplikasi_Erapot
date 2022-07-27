@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active bg-purple">Dashboard</li>
+    <li class="breadcrumb-item">Dashboard</li>
 @endsection
 
 
