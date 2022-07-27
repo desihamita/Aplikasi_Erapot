@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     MapelController,
     KelasController,
     TahunAjaranController,
+    GuruController,
 };
 
 /*
@@ -35,6 +36,9 @@ Route::group([
     Route::resource('/mapel', MapelController::class);
     Route::resource('/kelas', KelasController::class);
     Route::resource('/tahunAjaran', TahunAjaranController::class);
+
+    Route::get('/guru/data', [GuruController::class, 'data'])->name('guru.data');
+    Route::resource('/guru', GuruController::class);
 });
 
 Route::group([

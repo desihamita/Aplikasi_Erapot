@@ -31,13 +31,13 @@
                 </li>
                 @if (auth()->user()->hasRole('admin'))
                 <li class="nav-item">
-                    <a href="./index.html" class="nav-link {{ request()->is('admin/siswa*') ? 'active' : '' }}">
+                    <a href="./index.html" class="nav-link {{ request()->is('admin/siswa*') ? 'active bg-secondary' : '' }}">
                       <i class="far fa-user nav-icon"></i>
                       <p>Data Siswa</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./index.html" class="nav-link {{ request()->is('admin/guru*') ? 'active' : '' }}">
+                    <a href="{{ route('guru.index') }}" class="nav-link {{ request()->is('guru*') ? 'active bg-secondary' : '' }}">
                       <i class="fas fa-users nav-icon"></i>
                       <p>Data Guru</p>
                     </a>
