@@ -13,19 +13,21 @@
         <form action="{{ route('mapel.store') }}" method="post">
             @csrf
             @method('post')
-            
-            <div class="card">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="nama">Nama Mata Pelajaran</label>
-                        <input type="text" class="form-control" name="nama" required>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-dark">Reset</button>
-                    <button class="btn btn-primary">Simpan</button>
-                </div>
-            </div>
+            <x-card>
+                <div class="form-group row">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control  @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama')}}" required>
+
+                    @error('nama')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+
+                  </div>
+                <x-slot name="footer">
+                    <button type="reset" class="btn btn-dark">Reset</button>
+                        <button class="btn btn-primary">Simpan</button>
+                </x-slot>
+            </x-card>
         </form>
     </div>
 </div>

@@ -46,14 +46,16 @@ class MapelController extends Controller
         $this->validate($request, [
             'nama' => 'required|unique:mapel,nama'
         ]);
+
         $data = $request->only('nama');
 
         Mapel::create($data);
+
         return redirect()->route('mapel.index')
-        ->with([
-            'message' => 'Mata Pelajaran Berhasil Ditambahkan',
-            'success' => true,
-        ]);
+            ->with([
+                'message' => 'Kategori berhasil ditambahkan',
+                'success' => true,
+            ]);
     }
 
     /**
