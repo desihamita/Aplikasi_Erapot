@@ -44,12 +44,11 @@ class TahunAjaranController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'tahun_ajaran' => 'required|unique:tahun_ajaran,tahun_ajaran'
+            'tahun_ajaran' => 'required',
+            'semester' => 'required'
         ]);
 
-        $data = $request->only('tahun_ajaran');
-
-        TahunAjaran::create($data);
+        TahunAjaran::create($request->all());
 
         return redirect()->route('tahunAjaran.index')
             ->with([
@@ -90,11 +89,11 @@ class TahunAjaranController extends Controller
     public function update(Request $request, TahunAjaran $tahunAjaran)
     {
         $this->validate($request, [
-            'tahun_ajaran' => 'required|unique:tahun_ajaran,tahun_ajaran,'.$tahunAjaran->id
+            'tahun_ajaran' => 'required',
+            'semester' => 'required'
         ]);
-        $data = $request->only('tahun_ajaran');
 
-        $tahunAjaran->Update($data);
+        $tahunAjaran->Update($request->all());
         return redirect()->route('tahunAjaran.index')
         ->with([
             'message' => 'Tahun Ajaran Berhasil Diperbaharui',
@@ -110,6 +109,12 @@ class TahunAjaranController extends Controller
      */
     public function destroy(TahunAjaran $tahunAjaran)
     {
-        //
+        $tahunAjaran->delete();
+
+        return redirect()->route('tahunAjaran.index')
+        ->with([
+            'message' => 'Tahun Ajaran Berhasil Dihapus',
+            'success' => true,
+        ]);
     }
 }

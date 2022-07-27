@@ -21,13 +21,15 @@
             <x-table>
                 <x-slot name="thead">
                     <th width="5%">No</th>
-                    <th>Nama Mata Pelajaran</th>
+                    <th>Tahun Ajaran</th>
+                    <th>Semester</th>
                     <th width="15%"><i class="fas fa-cog"></i></th>
                 </x-slot>
                 @foreach ($tahunAjaran as $key => $item)
                     <tr>
                         <td><x-number-table :key="$key" :model="$tahunAjaran" /></td>
                         <td>{{ $item->tahun_ajaran }}</td>
+                        <td>{{ $item->semester }}</td>
                         <td>
                             <form action="{{ route('tahunAjaran.destroy', $item->id) }}" method="post">
                                 @csrf

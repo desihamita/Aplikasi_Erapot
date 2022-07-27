@@ -22,7 +22,19 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
 
-                  </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="semester">Semester</label>
+                        <select name="semester" id="semester" class="form-control  @error('semester') is-invalid @enderror" value="{{ old('semester')}}">
+                            <option value="ganjil">Ganjil</option>
+                            <option value="genap">Genap</option>
+                        </select>
+
+                      @error('semester')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
+
+                    </div>
                 <x-slot name="footer">
                     <button type="reset" class="btn btn-dark">Reset</button>
                     <button class="btn btn-primary">Simpan</button>
